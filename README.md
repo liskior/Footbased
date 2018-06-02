@@ -1,3 +1,5 @@
+**** Footbased.ino is the version with Bluetooth, imu_recorder.ino is without.
+
 Put foot into neutral position.
 
 Run the following command:
