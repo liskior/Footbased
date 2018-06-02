@@ -1,7 +1,7 @@
 import serial
 ser = serial.Serial()
-ser.baudrate = 115200
-ser.port = '/dev/ttyUSB0'
+ser.baudrate = 38400
+ser.port = '/dev/cu.HC-05-DevB-1'
 ser.open()
 while True:
-    print ser.readline() 
+    print ser.readline()
