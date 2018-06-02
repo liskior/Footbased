@@ -40,4 +40,4 @@ See also page 14 from:
 https://cdn-learn.adafruit.com/downloads/pdf/adafruit-bno055-absolute-orientation-sensor.pdf
 
 
-<![schema](img/Footbased.png)
+![schema](img/Footbased.png)
