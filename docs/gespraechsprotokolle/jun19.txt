@@ -1,0 +1,33 @@
+Gannt Chart 
+ - UI design parallelisierbar - Which movement corresponds to which action.
+
+
+sampling
+feature extraction
+
+
+UI: trigger-action pairs
+
+Pipeline auch parallelisierbar, aber vllt. lieber nicht, damit alle Pipelinestufen gelernt werden.
+
+modell trainieren
+modell live ausfuehrbar machen
+
+Eine kleine Studie müssen wir auch machen.
+
+Ausarbeitung:
+ - System beschreiben.
+ - Evaluation
+ - Kurzer Teil zu der Studie: So viele Leute, so gemacht...
+ - 10-15 Seiten laut Vorlage Springer LNCS
+
+
+Wenn man weiß wie es geht, ein Nachmittag für das ML-System.
+
+
+Am Anfang "related work" (Literatur)
+
+
+"Pipeline" ist ARC auf der Seite 8 in:
+https://perceptual.mpi-inf.mpg.de/files/2015/08/bulling14_csur.pdf
+Auf Youtube gibt es auch gute Videos.
