@@ -2,8 +2,8 @@ from random import shuffle
 from os import system
 from time import sleep
 
-MOVEMENTS = ['TOE RAISE', 'HEEL RAISE', 'BACKWARD SLIDE']
-TIMES_PER_MOVEMENT = 3
+MOVEMENTS = ['TOE RAISE', 'HEEL RAISE']
+TIMES_PER_MOVEMENT = 5
 
 to_be_recorded = MOVEMENTS * TIMES_PER_MOVEMENT
 shuffle(to_be_recorded)
