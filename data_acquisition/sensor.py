@@ -38,7 +38,17 @@ class Sensor(object):
                 found_device = device
         self.ser = Serial('/dev/' + found_device, 115200, timeout=0.1)
 
-    def get_a_data_point(self):
+    def get_a_raw_sample(self):
+        # Command Arduino to send one data point.
+        self.ser.write(SEND_ONE_DATA_POINT)
+
+        # Arduino's answer should be a byte array of size DATA_POINT_SIZE.
+        raw_data = self.ser.read(DATA_POINT_SIZE)
+    
+        return raw_data
+
+
+    def get_a_sample(self):
         # Command Arduino to send one data point.
         self.ser.write(SEND_ONE_DATA_POINT)
 
@@ -52,12 +62,17 @@ class Sensor(object):
 
     # Duration given in seconds.
     def get_data_points(self, duration):
+        self.ser.read(DATA_POINT_SIZE) # Discard first data point.
+
+        data_points = []
         self.ser.write(BEGIN_SENDING)
-        for _ in range(0, duration * 100): # 100 samples per second.
+        for _ in range(0, int(duration * 100)): # 100 samples per second.
             data_point = self.ser.read(DATA_POINT_SIZE)
             if len(data_point) == DATA_POINT_SIZE:
-                print unpack_data_point(data_point)
+                data_points.append(unpack_data_point(data_point))
         self.ser.write(STOP_SENDING)
+
+        return data_points
     
     def __del__(self):
         self.ser.close()

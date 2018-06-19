@@ -8,5 +8,5 @@ from sensor import Sensor
 
 sensor = Sensor()
 
-print sensor.get_a_data_point() # ONE-SHOT
+print sensor.get_a_sample() # ONE-SHOT
 print sensor.get_data_points(2) # CONTINUOUS (Read for two seconds)

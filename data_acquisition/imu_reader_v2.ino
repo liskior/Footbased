@@ -6,10 +6,10 @@
 Adafruit_BNO055 bno = Adafruit_BNO055();
 
 struct xyz {
-    float x, y, z;
+    double x, y, z;
 };
 
-// This struct should be 40 bytes long. (long and float are 4 bytes)
+// This struct should be 40 bytes long. (long and double are 4 bytes)
 struct data_point {
     unsigned long time;
     struct xyz acc, mag, gyr;
@@ -33,10 +33,10 @@ void setup() {
     bno.setExtCrystalUse(true); 
 }
 
-void copy(struct xyz target, imu::Vector<3> source) {
-    target.x = source[0];
-    target.y = source[1];
-    target.z = source[2];
+void copy(struct xyz& target, imu::Vector<3> source) {
+    target.x = source.x();
+    target.y = source.y();
+    target.z = source.z();
 }
 
 #define SEND_ONE_DATA_POINT '.'
