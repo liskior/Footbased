@@ -4,6 +4,7 @@ from sys import argv
 
 input_file = open(argv[1], 'r')
 data_points = eval(input_file.readline())
+input_file.close()
 
 data_arrays = [] # First one is for time. See output of parse_input.
 for _ in range(0, 10):
@@ -47,6 +48,4 @@ plt.plot(data_arrays[0], data_arrays[9])
 plt.title('Gyrometer')
 plt.xlabel('Time (s)')
 
-plt.show()
-
-input_file.close()
+plt.savefig(argv[1] + '.png')
