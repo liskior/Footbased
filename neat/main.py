@@ -30,10 +30,12 @@ def extract_data_and_target_from_dir(path_to_dataset_dir):
 
     return asarray(data).reshape(file_count, -1), asarray(target)
 
-data, target = extract_data_and_target_from_dir('../raw_data/dataset3/')
+data, target = extract_data_and_target_from_dir('dataset4')
 
-from sklearn import svm
-clf = svm.SVC(gamma=0.001, C=100.)
+#from sklearn import svm
+#clf = svm.SVC()
+from sklearn.ensemble import RandomForestClassifier
+clf = RandomForestClassifier()
 clf.fit(data, target)
 
 from sensor import Sensor
