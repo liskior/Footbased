@@ -48,7 +48,7 @@ class Sensor(object):
         else:
             return values
 
-    def get_single_sample(self):
+    def get_single_sample(self, with_timestamp=True):
         # Just in case.
         self.ser.write(STOP_SENDING)
 
@@ -60,7 +60,7 @@ class Sensor(object):
         if not raw_sample:
             return None
 
-        return self.__unpack_raw_sample(raw_sample, with_timestamp=True)
+        return self.__unpack_raw_sample(raw_sample, with_timestamp)
 
     def get_samples(self, number_of_samples):
         # Just in case.

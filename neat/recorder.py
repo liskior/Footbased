@@ -6,10 +6,14 @@ from sensor import Sensor
 from numpy import savetxt
 
 MOVEMENTS = [
-#    '01_FORWARD_SLIDE',
+    '01_FORWARD_SLIDE',
+    '02_BACKWARD_SLIDE',
     '04_HEEL_RAISE',
+    '05_TOE_RAISE',
+    '11_SUPINATION',
     '12_PRONATION',
-#    '21_SWEEP_OUTWARDS',
+    '21_SWEEP_OUTWARDS',
+    '130_TOE_TAP',
 ]
 
 SAMPLES_PER_MOVEMENT = 100
@@ -40,7 +44,7 @@ def record_one_movement(movement_name, recording_path):
     sleep(1)
 
 def start_recording(recording_path):
-    NUMBER_OF_REPETITIONS_PER_MOVEMENT = 25
+    NUMBER_OF_REPETITIONS_PER_MOVEMENT = 10
 
     to_be_recorded = MOVEMENTS * NUMBER_OF_REPETITIONS_PER_MOVEMENT
     shuffle(to_be_recorded)

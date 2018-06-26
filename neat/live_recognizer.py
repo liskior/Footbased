@@ -30,7 +30,7 @@ def extract_data_and_target_from_dir(path_to_dataset_dir):
 
     return asarray(data).reshape(file_count, -1), asarray(target)
 
-data, target = extract_data_and_target_from_dir('dataset5')
+data, target = extract_data_and_target_from_dir('dataset4')
 
 #from sklearn import svm
 #clf = svm.SVC()
@@ -41,15 +41,17 @@ clf.fit(data, target)
 from sensor import Sensor
 s = Sensor()
 while not s.get_single_sample(): pass
-from time import sleep
-print 'Get ready'
-sleep(1)
-print 'Go!'
-sleep(.4)
-samples = s.get_samples(100)
 
 from preprocessor import preprocess
-print clf.predict(preprocess(samples))
 
-from async_plotter import plot_to_new_window
-plot_to_new_window(samples)
+import numpy as np
+live_samples = []
+
+while True:
+    from time import sleep
+    sleep(0.01)
+    live_samples.append(s.get_single_sample(with_timestamp=False))
+    if len(live_samples) > 100:
+        question = preprocess(live_samples[-100:]).reshape(1, -1)
+        print 'QUESTION', question
+        print clf.predict(question)

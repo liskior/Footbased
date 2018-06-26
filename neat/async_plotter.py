@@ -37,3 +37,13 @@ def plot_to_png(samples, filename):
     assert(filename.endswith('.png'))
     __plot(samples)
     plt.savefig(filename)
+
+def plot_recording_dir(path):
+    from fnmatch import fnmatch
+    from os import listdir
+    from numpy import loadtxt
+
+    for filename in listdir(path):
+        if fnmatch(filename, 'rec_*.txt'):
+            tmp = path + '/' + filename
+            plot_to_png(loadtxt(tmp), tmp + '.png')

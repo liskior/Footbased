@@ -9,10 +9,13 @@ def preprocess(samples):
 ################################################################################
 
 def remove_mag_component(samples):
-    from numpy import ix_
-    rows_to_select = range(0, samples.shape[0])
-    cols_to_select = [0, 1, 2, 6, 7, 8]
-    return samples[ix_(rows_to_select, cols_to_select)]
+    if type(samples) == list:
+        return np.asarray(samples[0:3] + samples[6:9])
+        
+    if type(samples) == np.ndarray:
+        rows_to_select = range(0, samples.shape[0])
+        cols_to_select = [0, 1, 2, 6, 7, 8]
+        return samples[np.ix_(rows_to_select, cols_to_select)]
 
 ################################################################################
 
