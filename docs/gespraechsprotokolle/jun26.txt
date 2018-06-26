@@ -1,0 +1,24 @@
+splits richtig machen - training vs. testen
+
+leave one out & cross validierung
+
+daten aufnehmen
+
+wichtig: einzelne schritte in der pipeline architektur
+
+confusion matrix: TT und FF -- scikit kann alles
+ - accuracy -> bringt was nur wenn Klassen gleich verteilt sind. denn sonst
+   kannst du einfach immer die größere Klasse wählen.
+ - precision
+ - recall
+ - f1 score
+
+nächstes mal: evaluationen!
+
+Vorlesungsfolien hat was zu Evaluation.
+
+python dashboard frameworks mäh, aber du kannst schauen. wer weiß... im prinzip
+reicht ein DEA aus.
+ein einfaches GUI in python reicht - KPM Logo wäre gut
+
+Demo = superdumme Anwendung
