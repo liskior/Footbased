@@ -30,24 +30,61 @@ def extract_data_and_target_from_dir(path_to_dataset_dir):
 
     return asarray(data).reshape(file_count, -1), asarray(target)
 
-data, target = extract_data_and_target_from_dir('../raw_data/dataset4')
-me/alp/ok_to_lose/Footbased/raw_data/dataset4/rec_04_HEEL_RAISE_180626_091020.txt' 
+data, target = extract_data_and_target_from_dir('../raw_data/dataset5')
 #data2, target2 = extract_data_and_target_from_dir('../raw_data/dataset5')
 
-#from sklearn import svm
-#clf = svm.SVC()
+from sklearn import svm
 from sklearn.ensemble import RandomForestClassifier
-clf = RandomForestClassifier()
-clf.fit(data, target)
-#clf.fit(data[:-1], target[:-1])
+from sklearn.model_selection import cross_val_score
+from sklearn.naive_bayes import GaussianNB
+from sklearn.tree import DecisionTreeClassifier
 
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.datasets import make_moons, make_circles, make_classification
+from sklearn.neural_network import MLPClassifier
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.svm import SVC
+from sklearn.gaussian_process import GaussianProcessClassifier
+from sklearn.gaussian_process.kernels import RBF
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier
+from sklearn.naive_bayes import GaussianNB
+from sklearn.discriminant_analysis import QuadraticDiscriminantAnalysis
+
+CLASSIFIERS = [
+    #('SVC()', svm.SVC()),
+    #('LinearSVC()', svm.LinearSVC()),
+    #('KNeighborsClassifier(3)', KNeighborsClassifier(3)),
+    #('SVC(kernel="linear"', SVC(kernel="linear", C=0.025)),
+    #('SVC(gamma=2', SVC(gamma=2, C=1)),
+    #('GaussianProcessClassifier(1.0 * RBF(1.0))', GaussianProcessClassifier(1.0 * RBF(1.0))),
+    #('DecisionTreeClassifier(max_depth=5)', DecisionTreeClassifier(max_depth=5)),
+    #('RandomForestClassifier(max_depth=5', RandomForestClassifier(max_depth=5, n_estimators=10, max_features=1)),
+    #('RandomForestClassifier()', RandomForestClassifier()),
+    #('MLPClassifier(alpha=1)', MLPClassifier(alpha=1)),
+    #('AdaBoostClassifier()', AdaBoostClassifier()),
+    ('GaussianNB()', GaussianNB()),
+    #('Quadratic', QuadraticDiscriminantAnalysis()), 
+]
+
+
+scores_dict = { }
+
+for name, classifier in CLASSIFIERS:
+    classifier.fit(data, target)
+    scores = cross_val_score(classifier, data, target, cv=5)
+#    print name, scores
+    scores_dict[name] = float(sum(scores)) / len(scores)
+
+print '===================='
+
+for item in scores_dict.items():
+    print item[0], item[1]
+
+print '===================='
 
 #print clf.score(data[-1].reshape(1, -1), target[-1].reshape(1, -1))
-#print clf.score(data2, target2)
-
-from sklearn.model_selection import cross_val_score
-scores = cross_val_score(clf, data, target, cv=5)
-print scores
 
 '''
 from sensor import Sensor
