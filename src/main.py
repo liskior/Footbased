@@ -30,14 +30,26 @@ def extract_data_and_target_from_dir(path_to_dataset_dir):
 
     return asarray(data).reshape(file_count, -1), asarray(target)
 
-data, target = extract_data_and_target_from_dir('dataset5')
+data, target = extract_data_and_target_from_dir('../raw_data/dataset4')
+me/alp/ok_to_lose/Footbased/raw_data/dataset4/rec_04_HEEL_RAISE_180626_091020.txt' 
+#data2, target2 = extract_data_and_target_from_dir('../raw_data/dataset5')
 
 #from sklearn import svm
 #clf = svm.SVC()
 from sklearn.ensemble import RandomForestClassifier
 clf = RandomForestClassifier()
 clf.fit(data, target)
+#clf.fit(data[:-1], target[:-1])
 
+
+#print clf.score(data[-1].reshape(1, -1), target[-1].reshape(1, -1))
+#print clf.score(data2, target2)
+
+from sklearn.model_selection import cross_val_score
+scores = cross_val_score(clf, data, target, cv=5)
+print scores
+
+'''
 from sensor import Sensor
 s = Sensor()
 while not s.get_single_sample(): pass
@@ -53,3 +65,4 @@ print clf.predict(preprocess(samples))
 
 from async_plotter import plot_to_new_window
 plot_to_new_window(samples)
+'''
