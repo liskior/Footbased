@@ -1,0 +1,25 @@
+Process of the Evaluation:
+
+1. The participants are informed about the footbased recognition sensor, the possible foot movements and the mapped actions.
+2. The participants are given a set of tasks to perfrom:
+	1. Find a particular graph.
+	2. Zoom in on sthm.
+
+// The System records how many action are measured.
+3. The participants evaluate:
+	1. Usability of sensor: 1 - 10
+	2. Number of FN and FP actions: #
+		
+				
+
+4. Afterwards the following data is recorded for the evaluation:
+	1. F-Measure		( (2*precision*recall) / (precision + recall) )
+		precision 	( (t.a. - FP) / (t.a.)
+		recall 		( (t.a. - FP) / (t.a. - FP + FN)
+	
+
+
+// Problems: Working with the KPMG dashboards, not all actions we programm can be used/demonstrated.
+// t.a.: total actions,  TP: true positive, FP: false positives, TF: true negative, FN: false negative (number of actions the user made, that were not registered by the system)
+// precision 	( (t.a. - FP) / (t.a.)
+// recall 	( (t.a. - FP) / (t.a. - FP + FN)

@@ -1,0 +1,14 @@
+Steps:
+
+Slideshow with multiple graphs/pictures
+	1. SWITCH between windows with one action. (Sweep right/left)
+	
+Each Slide:
+	2. Zoom IN or OUT , by a certain degree (Slide front/back)
+	3. SELECT FIRST or LAST (Toe/Heel raise)
+	4. MOVE TO NEXT or PREVIOUS (Suspination in/out)
+	
+	?. GET DETAILS about selected element
+	?. SWITCH Darstellung (Column graph to pie chart, etc. (pie chart, bar chart, line graph)
+	?. COMMENT??
+	
