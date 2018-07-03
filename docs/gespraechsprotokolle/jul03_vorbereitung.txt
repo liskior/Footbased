@@ -1,0 +1,21 @@
+Fortschritt:
+1. Einbindung von sklearn
+2. Verbesserung der Genauigkeit auf ca. 95%
+3. Beschreibung des Prozesses der Evaluation
+4. Erstellen der GUI
+
+
+Fragen:
+1. Wie kann man die Evaluation ausführen, um alle Bewegungen zu überprüfen? (Nicht nur ROTATE ON HEEL RIGHT/LEFT und SLIDE FRONT/BACK)
+	1.1. Wie sollte die Demo aussehen? (Bisher Slideshow der KPMG Dashboard Screenshots)
+
+
+2. Die Einwilligungserklärung fertig ausfüllen.
+
+
+Ziele für nächste Woche:
+1. Durchführen der Studie mit ca. 10 - 15 Teilnehmern.
+2. Erstellen der final presentation (min. zu großen Teilen).
+3. Beginn erstellen der Dokumentation.
+4. Aufnahme weiterer Daten und Optimieren der Genauigkeit des Systems
+5. Aufräumen und Zusammenstellen des Codes

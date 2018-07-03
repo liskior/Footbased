@@ -1,16 +1,18 @@
 Process of the Evaluation:
 
-1. The participants are informed about the footbased recognition sensor, the possible foot movements and the mapped actions.
-2. The participants are given a set of tasks to perfrom:
+1. The participants are informed about the foot-based recognition sensor, the possible foot movements and the mapped actions.
+2. The participants are given a set of tasks to perform:
 	1. Find a particular graph.
 	2. Zoom in on sthm.
 
 // The System records how many action are measured.
 3. The participants evaluate:
-	1. Usability of sensor: 1 - 10
+	1. Precision of sensor: 1 - 10
+	2. Usability of sensor: 1 - 10
+	3. Would you use it in your everyday work? (Given the sensor would be smaller, wireless and with a good battery) 1 - 10
 	2. Number of FN and FP actions: #
-		
-				
+
+
 
 4. Afterwards the following data is recorded for the evaluation:
 	1. F-Measure		( (2*precision*recall) / (precision + recall) )
@@ -23,3 +25,7 @@ Process of the Evaluation:
 // t.a.: total actions,  TP: true positive, FP: false positives, TF: true negative, FN: false negative (number of actions the user made, that were not registered by the system)
 // precision 	( (t.a. - FP) / (t.a.)
 // recall 	( (t.a. - FP) / (t.a. - FP + FN)
+
+IMPORTANT NOTES FOR THE TESTLEITUNG:
+FNs, false negatives, have to be recorded per hand. The system does not record them.
+At the end they have to be added to the total number of actions.
