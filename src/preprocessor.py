@@ -36,13 +36,37 @@ def preprocess(samples):
     #r += map(fft_max_filter_single_column, columns) 
 
     #r += map(lambda x: sum(integral(x)), columns) 
-    return r
+    to_return = np.asarray(r)
+    #print 'RSHAPE > ', to_return.shape
+    return to_return.reshape((1, -1))
 
 ################################################################################
 
 def preprocess_old(samples):
     samples = remove_mag_component(samples)
     return fft_max_filter(samples)
+
+################################################################################
+
+def get_acc_component(samples):
+    if type(samples) == list:
+        return np.asarray(samples[0:2])#3])
+        
+    if type(samples) == np.ndarray:
+        rows_to_select = range(0, samples.shape[0])
+        cols_to_select = [0, 1]#, 2]
+        return samples[np.ix_(rows_to_select, cols_to_select)]
+    
+################################################################################
+
+def get_gyr_component(samples):
+    if type(samples) == list:
+        return np.asarray(samples[6:9])
+        
+    if type(samples) == np.ndarray:
+        rows_to_select = range(0, samples.shape[0])
+        cols_to_select = [6, 7, 8]
+        return samples[np.ix_(rows_to_select, cols_to_select)]
 
 ################################################################################
 

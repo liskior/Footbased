@@ -30,8 +30,9 @@ def extract_data_and_target_from_dir(path_to_dataset_dir):
 
     return asarray(data).reshape(file_count, -1), asarray(target)
 
-data, target = extract_data_and_target_from_dir('../raw_data/dataset5')
-#data2, target2 = extract_data_and_target_from_dir('../raw_data/dataset5')
+data, target = extract_data_and_target_from_dir('./rec/')
+#data, target = extract_data_and_target_from_dir('../raw_data/dataset5')
+data2, target2 = extract_data_and_target_from_dir('./rec/')
 
 from sklearn import svm
 from sklearn.ensemble import RandomForestClassifier
@@ -83,6 +84,11 @@ for item in scores_dict.items():
     print item[0], item[1]
 
 print '===================='
+
+classifier = GaussianNB()
+classifier.fit(data, target)
+from sklearn.metrics import confusion_matrix
+print confusion_matrix(target2, classifier.predict(data2))
 
 #print clf.score(data[-1].reshape(1, -1), target[-1].reshape(1, -1))
 
