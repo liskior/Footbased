@@ -1,21 +1,36 @@
 Fortschritt:
 1. Einbindung von sklearn
-2. Verbesserung der Genauigkeit auf ca. 95%
+2. Verbesserung der Genauigkeit auf ca. 97.5%
 3. Beschreibung des Prozesses der Evaluation
-4. Erstellen der GUI
+4. Entwurf der GUI
+5. Daten gesammelt
 
 
 Fragen:
 1. Wie kann man die Evaluation ausführen, um alle Bewegungen zu überprüfen? (Nicht nur ROTATE ON HEEL RIGHT/LEFT und SLIDE FRONT/BACK)
 	1.1. Wie sollte die Demo aussehen? (Bisher Slideshow der KPMG Dashboard Screenshots)
+	Entweder alles in python mit komplexer Slideshow ODER dashboard programm
+		3 Graphen, 3 verschiede Modi, mit jeweils 3 Werten 
+			Bewegungen: 1. nächster/vorheriger Slide
+						2. Zoom in/out
+						3. Graph in anderen Format neuzeichen (pie chart, bar chart, line graph)
+						4. Anwählen/abwählen der einzelnen Säulen (ODER nächstes/vorheriges Jahr)
+							Beim nächsten/vorherigen Jahr machen 3 Graphen für die Jahre 2015, 16, 17 und würden dann zwischen den switchen
 
 
 2. Die Einwilligungserklärung fertig ausfüllen.
 
 
 Ziele für nächste Woche:
+0. Fertigstellen der GUI
 1. Durchführen der Studie mit ca. 10 - 15 Teilnehmern.
 2. Erstellen der final presentation (min. zu großen Teilen).
-3. Beginn erstellen der Dokumentation.
+3. Beginn Erstellen der Dokumentation.
 4. Aufnahme weiterer Daten und Optimieren der Genauigkeit des Systems
 5. Aufräumen und Zusammenstellen des Codes
+
+
+Protokoll:
+mehrfache Klassifikation über mehrere Frames und danach einen Mehrheitsentscheid.
+	"stratified sampling"
+
