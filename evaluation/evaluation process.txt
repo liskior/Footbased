@@ -7,9 +7,11 @@ Process of the Evaluation:
 
 // The System records how many action are measured.
 3. The participants evaluate:
-	1. Precision of sensor: 1 - 10
-	2. Usability of sensor: 1 - 10
-	3. Would you use it in your everyday work? (Given the sensor would be smaller, wireless and with a good battery) 1 - 10
+	0.1. Which was the easiest task for you?
+	0.2. Which was the hardest task for you?	or each tasks difficulty to perform	1 - 5
+	1. Precision of sensor: 1 - 5
+	2. Usability of sensor: 1 - 5
+	3. Would you use it in your everyday work? (Given the sensor would be smaller, wireless and with a good battery) 1 - 5
 	2. Number of FN and FP actions: #
 
 

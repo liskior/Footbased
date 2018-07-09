@@ -1,4 +1,4 @@
-Fortschritt:
+﻿redraFortschritt:
 1. Einbindung von sklearn
 2. Verbesserung der Genauigkeit auf ca. 97.5%
 3. Beschreibung des Prozesses der Evaluation
