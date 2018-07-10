@@ -102,7 +102,7 @@ while True:
             elif final_answer == 'HEEL_RAISE':
                 m.click(3)
             elif final_answer == 'TOE_RAISE':
-                m.click()
+                m.click(2)
             elif final_answer == 'PIVOT_ON_HEEL_OUTWARDS':
                 m.next(1)
             elif final_answer == 'PIVOT_ON_HEEL_INWARDS':
