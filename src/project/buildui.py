@@ -80,7 +80,9 @@ def make_mg_layout(filename):
 
     # Make a Figure, add some settings, make a line plot
     ui.add_chart(create_line_plot(_stack))
-    ui.add_chart(create_histogram(_stack))
+    histo = create_histogram(_stack)
+    histo.__setattr__("visible", "false")
+    ui.add_chart(histo)
     ui.add_chart(create_scatterplot(df))
 
     return ui
