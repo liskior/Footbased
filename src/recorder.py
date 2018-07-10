@@ -47,6 +47,9 @@ def record_one_movement(movement_name, recording_path, recording_name=''):
     print 'Press enter to save the recording. Press space then enter to discard.'
     if raw_input():
         print 'Discarded.'
+        print 'Try again.'
+        sleep(1)
+        record_one_movement(movement_name, recording_path, recording_name)
     else:
         savetxt(file_path, samples)
         print 'Recorded.'

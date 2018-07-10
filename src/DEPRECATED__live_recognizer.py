@@ -1,3 +1,14 @@
+MOVEMENTS = {
+    '1': 'FORWARD_SLIDE',
+    '2': 'BACKWARD_SLIDE',
+    '4': 'HEEL_RAISE',
+    '5': 'TOE_RAISE',
+    '11': 'SUPINATION',
+    '12': 'PRONATION',
+    '19': 'PIVOT_ON_HEEL_INWARDS',
+    '20': 'PIVOT_ON_HEEL_OUTWARDS',
+}
+
 def extract_features_and_label_from_file(path_to_file):
     from numpy import loadtxt
     from preprocessor import preprocess
@@ -47,30 +58,48 @@ from preprocessor import *
 import numpy as np
 live_samples = np.ndarray((0, 9))
 
-flag = 0
+print 'Sensor getting ready.'
+
+for _ in range(100):
+    sleep(0.01)
+    single_sample = s.get_single_sample(with_timestamp=False)
+    live_samples = np.vstack((live_samples, single_sample))
+
+print 'Sensor ready.'
+
+THRESHOLD = 15
+predict = 0 # samples
+last_predictions = []
+
+from collections import Counter
+from mapping import Mapping
+m = Mapping()
+
+from sys import stdout
 
 while True:
     from time import sleep
     sleep(0.01)
-    live_samples = np.vstack((live_samples, s.get_single_sample(with_timestamp=False)))
-    #if len(live_samples) > 100:
-    if flag < 100:
-        flag += 1
-    else:
-        last100 = live_samples[-100:]
-        mean_acc = np.mean(get_acc_component(last100))
-        mean_gyr = np.mean(get_gyr_component(last100))
-            #print str(mean_acc) + '\t' + str(mean_gyr)
-            #print 'SHAPE>> ', question.shape
-            #kprint 'QUESTION', question
-        if mean_acc < 1 or mean_acc > 2 or abs(mean_gyr) > 9:
-            flag = 0
-            question = np.asarray(preprocess(last100))
-            live_samples = np.ndarray((0, 9))
-            p = clf.predict(question)
-            print p
-            from os import system
-            if p == str(5):
-                system('xdotool key j')
-            if p == str(12):
-                system('xdotool key k')
+    single_sample = s.get_single_sample(with_timestamp=False)
+    live_samples = np.vstack((live_samples, single_sample))
+    last100 = live_samples[-100:]
+    if sum(single_sample[6:9]) > THRESHOLD:
+        predict = 60
+        last_predictions = []
+    if predict > 0:
+        predict -= 1
+    if 20 > predict > 0:
+        predict -= 1
+        question = np.asarray(preprocess(last100))
+        p = str(clf.predict(question)).rstrip('\']').lstrip('[\'')
+        last_predictions.append(MOVEMENTS[p])
+
+        if predict == 0:
+            final_answer = Counter(last_predictions).most_common(1)[0][0]
+            print final_answer
+            if final_answer == 'SUPINATION':
+                m.open_list()
+            elif final_answer == 'HEEL_RAISE':
+                m.click(3)
+            elif final_answer == 'TOE_RAISE':
+                m.click(2)
