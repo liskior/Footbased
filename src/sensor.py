@@ -13,6 +13,7 @@ BEGIN_SENDING = 'b'
 STOP_SENDING = 's'
 
 def find_device():
+    return "/dev/tty.wchusbserial1410"
     device_name = ''
     for device in listdir('/dev/'):
         if fnmatch(device, 'ttyUSB*'):

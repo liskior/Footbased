@@ -11,7 +11,7 @@ class Mapping(object):
         options.add_argument('--ignore-certificate-errors')
         options.add_argument("--test-type")
         options.binary_location = "/usr/bin/chromium-browser"
-        self.__driver = webdriver.Chrome('/usr/lib/chromium-browser/chromedriver')
+        self.__driver = webdriver.Chrome('./chromedriver')
         self.__driver.get('http://127.0.0.1:5000/mg')
 
     def open_list(self):
