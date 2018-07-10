@@ -1,0 +1,14 @@
+﻿Fortschritt:
+	1. GUI: 		In arbeit, noch nicht fertig, noch nicht angebunden.
+	2. pipeline: 		Noch nicht die gewünschte Genauigkeit, wird angegangen
+	3. Evaluation: 		Noch nicht begonnen
+	4. Präsentation: 	Halb fertig, wartet auf die Ergebnisse von der pipeline, GUI und Evaluation
+	5. Dokumentation:	Begonnen, Format steht, Inhalte im Anfangsstadium, Litaraturrechenreche am Ende müssen wir nicht vergessen
+
+
+Für nächste Woche:
+	1. GUI: 		Fertigstellen, anbinden, muss für die Evaluation funktionieren.		2 - 3 Stunden
+	2. pipeline: 		Genauigkeit verbessern,	 muss für die Evaluation funktionieren.		3 - 4 Stunden
+	3. Evaluation: 		Anfangen und Fertigstellen, geschätzter Zeitaufwand OHNE Auswertung: 	6 - 7 Stunden
+	4. Präsentation: 	Fertigstellen, gesch. Zeitaufwand:					2 - 3 Stunden.
+	5. Dokumentation:	Zweitrangig, muss nicht bis nächste Woche fertig werden.	

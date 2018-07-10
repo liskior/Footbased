@@ -14,6 +14,9 @@ Process of the Evaluation:
 	3. Would you use it in your everyday work? (Given the sensor would be smaller, wireless and with a good battery) 1 - 5
 	2. Number of FN and FP actions: #
 
+		Eher allgemeine Bewertung: 1 - 5
+		Eher offene Fragen: >> qualitative Fragen
+ 
 
 
 4. Afterwards the following data is recorded for the evaluation:

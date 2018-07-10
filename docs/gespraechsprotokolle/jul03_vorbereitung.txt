@@ -11,7 +11,7 @@ Fragen:
 	1.1. Wie sollte die Demo aussehen? (Bisher Slideshow der KPMG Dashboard Screenshots)
 	Entweder alles in python mit komplexer Slideshow ODER dashboard programm
 		3 Graphen, 3 verschiede Modi, mit jeweils 3 Werten 
-			Bewegungen: 1. nächster/vorheriger Slide
+			Bewegungen: 		1. nächster/vorheriger Slide
 						2. Zoom in/out
 						3. Graph in anderen Format neuzeichen (pie chart, bar chart, line graph)
 						4. Anwählen/abwählen der einzelnen Säulen (ODER nächstes/vorheriges Jahr)
