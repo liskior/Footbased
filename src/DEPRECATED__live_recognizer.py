@@ -104,6 +104,6 @@ while True:
             elif final_answer == 'TOE_RAISE':
                 m.click(2)
             elif final_answer == 'PIVOT_ON_HEEL_OUTWARDS':
-                m.next(1)
+                m.next()
             elif final_answer == 'PIVOT_ON_HEEL_INWARDS':
                 m.choose(1)
