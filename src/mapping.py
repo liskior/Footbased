@@ -22,8 +22,7 @@ class Mapping(object):
         self.open_list()
         python_button1 = self.__driver.find_elements_by_xpath("//li[@role='presentation']")[n]
         python_button1.click()
-        self.__driver.execute_script("document.getElementById('mg_histogram').firstChild.style.height='0'")
-        self.__driver.execute_script("document.getElementById('mg_scatter').firstChild.style.height='0'")
+        self.hide()
 
     def __del__(self):
         self.__driver.quit()
