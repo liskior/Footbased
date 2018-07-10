@@ -19,6 +19,7 @@ class Mapping(object):
         python_button.click()
 
     def click(self, n):
+        self.open_list()
         python_button1 = self.__driver.find_elements_by_xpath("//li[@role='presentation']")[n]
         python_button1.click()
 
