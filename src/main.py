@@ -30,7 +30,7 @@ def extract_data_and_target_from_dir(path_to_dataset_dir):
 
     return asarray(data).reshape(file_count, -1), asarray(target)
 
-data, target = extract_data_and_target_from_dir('./rec/')
+data, target = extract_data_and_target_from_dir('/tmp/recall/')
 #data, target = extract_data_and_target_from_dir('../raw_data/dataset5')
 data2, target2 = extract_data_and_target_from_dir('./rec/')
 

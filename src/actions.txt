@@ -1,0 +1,4 @@
+refresh page
+zoom in/out
+show data list
+next/prev element in list
