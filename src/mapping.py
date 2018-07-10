@@ -21,9 +21,9 @@ class Mapping(object):
         list = True
 
     def click(self, n):
-        if list:
+        if self.list:
             self.open_list()
-        list = False
+        self.list = False
         python_button1 = self.__driver.find_elements_by_xpath("//li[@role='presentation']")[n]
         python_button1.click()
         self.hide()
