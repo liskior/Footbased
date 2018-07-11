@@ -1,0 +1,10 @@
+graph 1: Official KPMG Tätigkeitsberichte 2015, 2016, 2017
+https://assets.kpmg.com/content/dam/kpmg/pdf/2015/04/kpmg-de-transparenzbericht-2015-online-sec.pdf
+https://assets.kpmg.com/content/dam/kpmg/pdf/2016/03/transparenzbericht-deutschland-kpmg-2016.pdf
+https://assets.kpmg.com/content/dam/kpmg/de/pdf/Themen/2017/kpmg-transparenzbericht-ag-2017.pdf
+
+graph 2: 
+https://www.statista.com/statistics/551501/worldwide-big-data-business-analytics-revenue/
+
+graph 3:
+https://www.statista.com/statistics/189506/number-of-employees-of-kpmg-by-position-2010/
