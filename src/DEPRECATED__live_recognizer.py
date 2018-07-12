@@ -58,14 +58,12 @@ from preprocessor import *
 import numpy as np
 live_samples = np.ndarray((0, 9))
 
-print 'Sensor getting ready.'
-
+# The user has to wait for one second so we have at least 100 samples.
+print 'Wait for one second...'
 for _ in range(100):
     sleep(0.01)
     single_sample = s.get_single_sample(with_timestamp=False)
     live_samples = np.vstack((live_samples, single_sample))
-
-print 'Sensor ready.'
 
 THRESHOLD = 15
 predict = 0 # samples
@@ -74,6 +72,14 @@ last_predictions = []
 from collections import Counter
 from mapping import Mapping
 m = Mapping()
+MOVEMENT_TO_GUI = {
+    'SUPINATION': m.open_list,
+    'HEEL_RAISE': m.click,
+    'TOE_RAISE': m.click,
+    'PIVOT_ON_HEEL_OUTWARDS': m.next,
+    'PIVOT_ON_HEEL_INWARDS': m.choose,
+}
+
 
 from sys import stdout
 
@@ -97,13 +103,4 @@ while True:
         if predict == 0:
             final_answer = Counter(last_predictions).most_common(1)[0][0]
             print final_answer
-            if final_answer == 'SUPINATION':
-                m.open_list()
-            elif final_answer == 'HEEL_RAISE':
-                m.click(3)
-            elif final_answer == 'TOE_RAISE':
-                m.click(2)
-            elif final_answer == 'PIVOT_ON_HEEL_OUTWARDS':
-                m.next()
-            elif final_answer == 'PIVOT_ON_HEEL_INWARDS':
-                m.choose(1)
+            MOVEMENT_TO_GUI[final_answer]()

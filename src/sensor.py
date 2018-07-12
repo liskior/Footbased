@@ -5,6 +5,7 @@ from os import listdir
 from serial import Serial
 from struct import unpack
 from numpy import asarray
+from os.path import lexists
 
 SAMPLE_SIZE = 40 # in bytes
 
@@ -13,14 +14,18 @@ BEGIN_SENDING = 'b'
 STOP_SENDING = 's'
 
 def find_device():
-    return "/dev/tty.wchusbserial1410"
-    device_name = ''
-    for device in listdir('/dev/'):
-        if fnmatch(device, 'ttyUSB*'):
-            device_name = device
-    if not device_name:
-        raise 'DEVICE NOT FOUND!'
-    return '/dev/' + device_name
+    possible_device_locations = [
+        '/dev/tty.wchusbserial1410',
+        '/dev/ttyUSB0',
+        '/dev/ttyUSB1',
+        '/dev/ttyUSB2',
+    ]
+
+    for candidate in possible_device_locations:
+        if lexists(candidate):
+            return candidate
+
+    raise 'DEVICE NOT FOUND!'
 
 class Sensor(object):
 
@@ -29,6 +34,17 @@ class Sensor(object):
             path_to_device = find_device()
 
         self.ser = Serial(path_to_device, 115200, timeout=0.025)
+
+        print 'Initializing the sensor...'
+
+        # Wait till sensor starts returning values.
+        while not self.get_single_sample(): pass
+
+        # Wait till sensor starts returning values other than zero.
+        sensor_data = 0
+        while sensor_data == 0: sensor_data = sum(self.get_single_sample()[1])
+
+        print 'Sensor initialized.'
 
     def __read_a_sample(self):
         return self.ser.read(SAMPLE_SIZE)
