@@ -97,10 +97,10 @@ while True:
             print final_answer
             if final_answer == 'SUPINATION': m.open_list()
             elif final_answer == 'HEEL_RAISE': m.click(2)
-            elif final_answer == 'TOE_RAISE': m.click(3)
+            elif final_answer == 'TOE_RAISE': m.click(1)
             elif final_answer == 'PIVOT_ON_HEEL_OUTWARDS': m.next()
             elif final_answer == 'PIVOT_ON_HEEL_INWARDS':
                 m.next()
                 m.next()
             elif final_answer == 'FORWARD_SLIDE': m.choose(2)
-            elif final_answer == 'BACKWARD_SLIDE': m.choose(3)
+            elif final_answer == 'BACKWARD_SLIDE': m.choose(1)

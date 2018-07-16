@@ -30,10 +30,10 @@ class Mapping(object):
     def click(self, n):
         if not self.__list:
             self.open_list()
-            sleep(0.1)
         python_button1 = self.__driver.find_elements_by_xpath("//li[@role='presentation']")[n]
         python_button1.click()
         self.hide()
+        self.__list = False
 
     def __del__(self):
         self.__driver.quit()
