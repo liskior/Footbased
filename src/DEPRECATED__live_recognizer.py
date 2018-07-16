@@ -2,8 +2,7 @@ MOVEMENTS = {
     '1': 'FORWARD_SLIDE',
     '2': 'BACKWARD_SLIDE',
     '4': 'HEEL_RAISE',
-    '5': 'TOE_RAISE',
-    '11': 'SUPINATION',
+    '5': 'TOE_RAISE', '11': 'SUPINATION',
     '12': 'PRONATION',
     '19': 'PIVOT_ON_HEEL_INWARDS',
     '20': 'PIVOT_ON_HEEL_OUTWARDS',
@@ -72,13 +71,6 @@ last_predictions = []
 from collections import Counter
 from mapping import Mapping
 m = Mapping()
-MOVEMENT_TO_GUI = {
-    'SUPINATION': m.open_list,
-    'HEEL_RAISE': m.click,
-    'TOE_RAISE': m.click,
-    'PIVOT_ON_HEEL_OUTWARDS': m.next,
-    'PIVOT_ON_HEEL_INWARDS': m.choose,
-}
 
 
 from sys import stdout
@@ -103,4 +95,12 @@ while True:
         if predict == 0:
             final_answer = Counter(last_predictions).most_common(1)[0][0]
             print final_answer
-            MOVEMENT_TO_GUI[final_answer]()
+            if final_answer == 'SUPINATION': m.open_list()
+            elif final_answer == 'HEEL_RAISE': m.click(2)
+            elif final_answer == 'TOE_RAISE': m.click(3)
+            elif final_answer == 'PIVOT_ON_HEEL_OUTWARDS': m.next()
+            elif final_answer == 'PIVOT_ON_HEEL_INWARDS':
+                m.next()
+                m.next()
+            elif final_answer == 'FORWARD_SLIDE': m.choose(2)
+            elif final_answer == 'BACKWARD_SLIDE': m.choose(3)
