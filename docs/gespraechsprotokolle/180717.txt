@@ -23,6 +23,7 @@ Bis Donnerstag-Mittag zu Erik schicken.
 Dann hat er gesagt "Morgen eine Version schicken."
 
 Ausarbeitung erst 20. August.
+(ILIAS says Friday 17. August)
 
 
 Motivation, Related work, systemaufbau, wie hat man evaluiert
