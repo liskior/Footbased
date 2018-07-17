@@ -1,0 +1,44 @@
+Confusion matrix for each movement
+
+TECO statt IISM
+
+Bilder von der Studie
+
+Mehr Pipeline. Features. tsfresh.
+
+Hardware vor Datensammlung-Folie.
+
+Latency
+
+20 Minuten
+
+1 Std. Demo später
+
+
+- Unstrukturiert
+- Folien nicht zum ersten Mal sehen > Erik Pescara übt 3-4 vorm Spiegel (dann
+  hast du ein Pfad)
+
+Bis Donnerstag-Mittag zu Erik schicken.
+Dann hat er gesagt "Morgen eine Version schicken."
+
+Ausarbeitung erst 20. August.
+
+
+Motivation, Related work, systemaufbau, wie hat man evaluiert
+Mini-Bachelorarbeit
+
+
+Tipp: Bewertet wird nicht Code sondern enddokument. Bei Bach. Arbeit und so.
+
+Einleitung. Verwandte Arbeiten. => Das gibt es noch nicht. Ich will machen.
+
+Formatvorlage steht da.
+
+Vielleicht auf Bluetooth ein Kreuz setzen.
+
+Im ILIAS steht: Präsi muss per Mail geschickt werden (bis Donnerstag Abend?)
+
+Think of possible questions
+Ground truth leakage
+>> Prepare yourself for the lingo, like false positive, truth leakage
