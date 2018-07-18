@@ -54,19 +54,19 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.discriminant_analysis import QuadraticDiscriminantAnalysis
 
 CLASSIFIERS = [
-    #('SVC()', svm.SVC()),
-    #('LinearSVC()', svm.LinearSVC()),
-    #('KNeighborsClassifier(3)', KNeighborsClassifier(3)),
-    #('SVC(kernel="linear"', SVC(kernel="linear", C=0.025)),
-    #('SVC(gamma=2', SVC(gamma=2, C=1)),
-    #('GaussianProcessClassifier(1.0 * RBF(1.0))', GaussianProcessClassifier(1.0 * RBF(1.0))),
-    #('DecisionTreeClassifier(max_depth=5)', DecisionTreeClassifier(max_depth=5)),
-    #('RandomForestClassifier(max_depth=5', RandomForestClassifier(max_depth=5, n_estimators=10, max_features=1)),
-    #('RandomForestClassifier()', RandomForestClassifier()),
-    #('MLPClassifier(alpha=1)', MLPClassifier(alpha=1)),
-    #('AdaBoostClassifier()', AdaBoostClassifier()),
+    ('SVC()', svm.SVC()),
+    ('LinearSVC()', svm.LinearSVC()),
+    ('KNeighborsClassifier(3)', KNeighborsClassifier(3)),
+    ('SVC(kernel="linear"', SVC(kernel="linear", C=0.025)),
+    ('SVC(gamma=2', SVC(gamma=2, C=1)),
+    ('GaussianProcessClassifier(1.0 * RBF(1.0))', GaussianProcessClassifier(1.0 * RBF(1.0))),
+    ('DecisionTreeClassifier(max_depth=5)', DecisionTreeClassifier(max_depth=5)),
+    ('RandomForestClassifier(max_depth=5', RandomForestClassifier(max_depth=5, n_estimators=10, max_features=1)),
+    ('RandomForestClassifier()', RandomForestClassifier()),
+    ('MLPClassifier(alpha=1)', MLPClassifier(alpha=1)),
+    ('AdaBoostClassifier()', AdaBoostClassifier()),
     ('GaussianNB()', GaussianNB()),
-    #('Quadratic', QuadraticDiscriminantAnalysis()), 
+    ('Quadratic', QuadraticDiscriminantAnalysis()), 
 ]
 
 
