@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from pyxley.charts.mg import Figure, Histogram, LineChart, ScatterPlot
 from pyxley.filters import SelectButton
 from pyxley import UILayout, register_layouts
