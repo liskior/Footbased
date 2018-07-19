@@ -158,6 +158,8 @@ The matrix axes:
 5 PRONATION
 6 SUPINATION
 7 TOE_RAISE
+Row sum = How many times a movement was prompted
+Column sum = How many times a movement was predicted
 '''
 
 def colormap(input_matrix):
