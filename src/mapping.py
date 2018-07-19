@@ -18,12 +18,12 @@ class Mapping(object):
         print(self.__driver)
         python_button = self.__driver.find_elements_by_xpath("//button[@id='filter_0']")[0]
         python_button.click()
-        list = True
+        self.list = True
 
     def click(self, n):
         if not self.list:
             self.open_list()
-            
+
         self.list = False
         python_button1 = self.__driver.find_elements_by_xpath("//li[@role='presentation']")[n]
         python_button1.click()
