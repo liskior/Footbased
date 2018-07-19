@@ -6,35 +6,40 @@ from selenium.webdriver.common.action_chains import ActionChains
 
 class Mapping(object):
     plots = ["mg_line_plot", "mg_histogram", "mg_scatter"]
+
     active = 0
-    __list = False
+    __list = [False, False, False]
+    crutch = [0, 5, 8]
 
     def __init__(self):
         options = webdriver.ChromeOptions()
         options.add_argument('--ignore-certificate-errors')
         options.add_argument("--test-type")
         options.binary_location = "/usr/bin/chromium-browser"
-        if lexists('/usr/lib/chromium-browser/chromedriver'):
-            chromedriver_path = '/usr/lib/chromium-browser/chromedriver'
-        else:
-            chromedriver_path = './chromedriver'
+
+        chromedriver_path = './chromedriver'
         self.__driver = webdriver.Chrome(chromedriver_path)
         self.__driver.get('http://127.0.0.1:5000/mg')
+        self.show(0)
+        sleep(2)
+        self.show(1)
 
-    def open_list(self):
+        sleep(2)
+        self.show(2)
+
+    def open_list(self, id):
         print(self.__driver)
-        python_button = self.__driver.find_elements_by_xpath("//button[@id='filter_0']")[0]
+        python_button = self.__driver.find_elements_by_xpath("//button[@id='filter_" + str(id) + "']")[0]
         python_button.click()
-        self.__list = True
+        self.__list[id] = True
 
-    def click(self, n):
-        if not self.list:
-            self.open_list()
+    def click(self, n, id):
+        if not self.__list[id]:
+            self.open_list(id)
 
-        self.list = False
+        self.__list[id] = False
         python_button1 = self.__driver.find_elements_by_xpath("//li[@role='presentation']")[n]
         python_button1.click()
-        self.hide()
 
     def __del__(self):
         self.__driver.quit()
@@ -51,7 +56,12 @@ class Mapping(object):
         hover = ActionChains(self.__driver).move_to_element(python_button)
         hover.perform()
 
-    def hide(self):
-        self.__driver.execute_script("document.getElementById('mg_histogram').firstChild.style.height='0'")
-        self.__driver.execute_script("document.getElementById('mg_scatter').firstChild.style.height='0'")
-
+    def show(self, i):
+        for j in range(3):
+            if j != i:
+                script = "document.getElementsByClassName('btn-group')[" + str(j) + "].style.display='none'"
+                self.__driver.execute_script(script)
+            else:
+                script = "document.getElementsByClassName('btn-group')[" + str(j) + "].style.display='inline-block'"
+                self.__driver.execute_script(script)
+        self.click(self.crutch[i] + 1, i)

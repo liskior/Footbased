@@ -10,7 +10,7 @@ from collections import OrderedDict
 from flask import request, jsonify
 
 
-def create_line_plot(df, i, name):
+def create_line_plot(df, i, name, n, titel):
     """ create a mg line plot
 
         Args:
@@ -24,10 +24,10 @@ def create_line_plot(df, i, name):
     fig.layout.set_margin(left=40, right=40)
     fig.axes.set_min_y_from_data(True)
     fig.axes.set_inflator(1.005)
-    fig.axes.set_xticks_count(3)
+    fig.axes.set_xticks_count(n)
     return LineChart(df=df, figure=fig, x="Year", y=["value"],
                      init_params={"Data": name},
-                     timeseries=True)
+                     timeseries=True, title=titel)
 
 
 def make_mg_layout(filename):
@@ -47,7 +47,7 @@ def make_mg_layout(filename):
     _stack = _stack.rename(columns={"level_1": "Data", 0: "value"})
 
     # Make a Figure, add some settings, make a line plot
-    ui.add_chart(create_line_plot(_stack, i=0, name="Abschlussprüfungsleistungen"))
+    ui.add_chart(create_line_plot(_stack, i=0, name="Abschlussprüfungsleistungen", n=3, titel="KPMG Umsätze"))
 
     here = path.abspath(path.dirname(__file__))
 
@@ -62,10 +62,20 @@ def make_mg_layout(filename):
     _stack1 = _stack1.rename(columns={"level_1": "Data", 0: "value"})
 
     # Make a Figure, add some settings, make a line plot
-    ui.add_chart(create_line_plot(_stack1, i=1, name="Professionals"))
+    ui.add_chart(create_line_plot(_stack1, i=1, name="Professionals", n=8, titel="Employees of KPMG worldwide by position 2010-2017"))
 
     # stack the dataframe
+    df2 = pd.read_csv(here + "/file1")
+    cols2 = [c for c in df2.columns if c != "Year"]
+    btn2 = SelectButton("Revenue in billion $", cols2, "Data", "Revenue in billion $")
+    btn2.__setattr__("margin", 50)
+    ui.add_filter(btn2)
+    # Make a Button
+    _stack2 = df2.set_index("Year").stack().reset_index()
+    _stack2 = _stack2.rename(columns={"level_1": "Data", 0: "value"})
 
+    # Make a Figure, add some settings, make a line plot
+    ui.add_chart(create_line_plot(_stack2, i=2, name="Revenue in billion U.S. dollars", n=6, titel="Big data and business analytics revenue worldwide 2015-2020"))
 
     return ui
 
