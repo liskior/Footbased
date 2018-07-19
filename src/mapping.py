@@ -1,4 +1,3 @@
-from os.path import lexists
 from time import sleep
 
 from selenium import webdriver
@@ -16,8 +15,7 @@ class Mapping(object):
         options.add_argument("--test-type")
         options.binary_location = "/usr/bin/chromium-browser"
 
-        # Asia, schreib ./chromedriver in CHROME_DRV_PATH.txt
-        # CHROME_DRV_PATH.txt ist in .gitignore
+
         f = open('CHROME_DRV_PATH.txt', 'r')
         drvpath = f.readline().rstrip()
         chromedriver_path = drvpath
@@ -32,21 +30,20 @@ class Mapping(object):
         #sleep(2)
         #self.show(2)
 
-    def open_list(self, id):
-        if self.active != id:
+    def open_list(self, a):
+        if self.active != a:
             return
         print(self.__driver)
-        python_button = self.__driver.find_elements_by_xpath("//button[@id='filter_" + str(id) + "']")[0]
+        python_button = self.__driver.find_elements_by_xpath("//button[@id='filter_" + str(a) + "']")[0]
         python_button.click()
-        self.__list[id] = True
+        self.__list[a] = True
 
-    def click(self, n, id):
-        if self.active != id:
+    def click(self, n, a):
+        if self.active != a:
             return
-        if not self.__list[id]:
-            self.open_list(id)
-
-        self.__list[id] = False
+        if not self.__list[a]:
+            self.open_list(a)
+        self.__list[a] = False
         python_button1 = self.__driver.find_elements_by_xpath("//li[@role='presentation']")[self.crutch[self.active] + n]
         python_button1.click()
 
@@ -66,5 +63,6 @@ class Mapping(object):
             else:
                 script = "document.getElementsByClassName('btn-group')[" + str(j) + "].style.display='inline-block'"
                 self.__driver.execute_script(script)
-        self.click(self.crutch[i] + 1, i)
         self.active = i
+        self.click(1, i)
+
