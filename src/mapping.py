@@ -25,12 +25,12 @@ class Mapping(object):
 
         self.__driver = webdriver.Chrome(chromedriver_path)
         self.__driver.get('http://127.0.0.1:5000/mg')
-        self.show(0)
-        sleep(2)
-        self.show(1)
+        #self.show(0)
+        #sleep(2)
+        #self.show(1)
 
-        sleep(2)
-        self.show(2)
+        #sleep(2)
+        #self.show(2)
 
     def open_list(self, id):
         if self.active != id:
