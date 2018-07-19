@@ -1,24 +1,31 @@
+from os.path import lexists
+from time import sleep
+
 from selenium import webdriver
 from selenium.webdriver.common.action_chains import ActionChains
 
 class Mapping(object):
     plots = ["mg_line_plot", "mg_histogram", "mg_scatter"]
     active = 0
-    list = False
+    __list = False
 
     def __init__(self):
         options = webdriver.ChromeOptions()
         options.add_argument('--ignore-certificate-errors')
         options.add_argument("--test-type")
         options.binary_location = "/usr/bin/chromium-browser"
-        self.__driver = webdriver.Chrome('./chromedriver')
+        if lexists('/usr/lib/chromium-browser/chromedriver'):
+            chromedriver_path = '/usr/lib/chromium-browser/chromedriver'
+        else:
+            chromedriver_path = './chromedriver'
+        self.__driver = webdriver.Chrome(chromedriver_path)
         self.__driver.get('http://127.0.0.1:5000/mg')
 
     def open_list(self):
         print(self.__driver)
         python_button = self.__driver.find_elements_by_xpath("//button[@id='filter_0']")[0]
         python_button.click()
-        self.list = True
+        self.__list = True
 
     def click(self, n):
         if not self.list:

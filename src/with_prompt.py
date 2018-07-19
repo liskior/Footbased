@@ -69,14 +69,19 @@ predict = 0 # samples
 last_predictions = []
 
 from collections import Counter
-from mapping import Mapping
-m = Mapping()
 
 
 from sys import stdout
 
+def pprint(text, path='result1'):
+    from os import system
+    system('date "+%H%M%S%Npredicted" >> ' + path)
+    system('echo "' + text + '" >> ' + path)
+    print text
+
 while True:
     from time import sleep
+    from sys import argv
     sleep(0.01)
     single_sample = s.get_single_sample(with_timestamp=False)
     live_samples = np.vstack((live_samples, single_sample))
@@ -94,13 +99,4 @@ while True:
 
         if predict == 0:
             final_answer = Counter(last_predictions).most_common(1)[0][0]
-            print final_answer
-            if final_answer == 'SUPINATION': m.open_list()
-            elif final_answer == 'HEEL_RAISE': m.click(2)
-            elif final_answer == 'TOE_RAISE': m.click(1)
-            elif final_answer == 'PIVOT_ON_HEEL_OUTWARDS': m.next()
-            elif final_answer == 'PIVOT_ON_HEEL_INWARDS':
-                m.next()
-                m.next()
-            elif final_answer == 'FORWARD_SLIDE': m.choose(2)
-            elif final_answer == 'BACKWARD_SLIDE': m.choose(1)
+            pprint(final_answer, argv[1])
