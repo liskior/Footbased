@@ -5,8 +5,8 @@ from selenium.webdriver.common.action_chains import ActionChains
 
 class Mapping(object):
 
-    active = 0
-    __list = [False, False, False]
+    active = 0 # active LIST
+    __list = [False, False, False] # list open
     crutch = [0, 5, 8]
 
     def __init__(self):
@@ -39,6 +39,11 @@ class Mapping(object):
         self.__list[a] = True
 
     def click(self, n, a):
+        """
+        n: ITEM IN A LIST  id
+        a: LIST BUTTON id
+        """
+
         if self.active != a:
             return
         if not self.__list[a]:

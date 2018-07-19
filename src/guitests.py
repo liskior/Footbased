@@ -10,7 +10,7 @@ class MyUnitTest(unittest.TestCase):
     def setUpClass(cls):
         global m
         m = Mapping()
-        sleep(10)
+        sleep(2)
 
 class MyFirstSetOfTests(MyUnitTest):
 
