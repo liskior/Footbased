@@ -26,8 +26,6 @@ class Mapping(object):
         self.show(0)
         #sleep(2)
         #self.show(1)
-
-        #sleep(2)
         #self.show(2)
 
     def open_list(self, a):
