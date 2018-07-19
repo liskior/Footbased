@@ -17,7 +17,13 @@ class Mapping(object):
         options.add_argument("--test-type")
         options.binary_location = "/usr/bin/chromium-browser"
 
-        chromedriver_path = './chromedriver'
+        # Asia, schreib ./chromedriver in CHROME_DRV_PATH.txt
+        # CHROME_DRV_PATH.txt ist in .gitignore
+        f = open('CHROME_DRV_PATH.txt', 'r')
+        drvpath = f.readline().rstrip()
+        chromedriver_path = drvpath
+        f.close()
+
         self.__driver = webdriver.Chrome(chromedriver_path)
         self.__driver.get('http://127.0.0.1:5000/mg')
         self.show(0)
