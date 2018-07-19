@@ -23,7 +23,7 @@ class Mapping(object):
 
         self.__driver = webdriver.Chrome(chromedriver_path)
         self.__driver.get('http://127.0.0.1:5000/mg')
-        #self.show(0)
+        self.show(0)
         #sleep(2)
         #self.show(1)
 

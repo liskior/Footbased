@@ -2,7 +2,7 @@ import unittest
 from time import sleep
 from mapping import Mapping
 
-DELAY = 1
+DELAY = 0.4
 m = None
 
 class MyUnitTest(unittest.TestCase):
@@ -17,10 +17,11 @@ class MyFirstSetOfTests(MyUnitTest):
     def test1(self):
         sleep(DELAY)
         global m
-        m.show(0)
-        print 'm.show(0)'
+        m.show(1)
+        print('m.show(0)')
         sleep(DELAY)
-        #m.click(1, 0)
+        m.click(2, 1)
+        sleep(10)
 
 #    def test2(self):
 #        sleep(DELAY)
