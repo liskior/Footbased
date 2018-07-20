@@ -95,7 +95,7 @@ while True:
         if predict == 0:
             final_answer = Counter(last_predictions).most_common(1)[0][0]
             print final_answer
-            if final_answer == 'SUPINATION': m.open_list()
+            if final_answer == 'SUPINATION': m.open_list(0)
             elif final_answer == 'HEEL_RAISE': m.click(2)
             elif final_answer == 'TOE_RAISE': m.click(1)
             elif final_answer == 'PIVOT_ON_HEEL_OUTWARDS': m.next()

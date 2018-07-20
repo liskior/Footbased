@@ -9,6 +9,7 @@ class Mapping(object):
     __list = [False, False, False] # list open
     crutch = [0, 5, 8]
 
+
     def __init__(self):
         options = webdriver.ChromeOptions()
         options.add_argument('--ignore-certificate-errors')
@@ -28,6 +29,10 @@ class Mapping(object):
         #self.show(1)
         #self.show(2)
 
+        self.click(0, 0)
+        self.current_list = 0
+        self.current_item = 0
+
     def open_list(self, a):
         if self.active != a:
             return
@@ -36,11 +41,19 @@ class Mapping(object):
         python_button.click()
         self.__list[a] = True
 
+    def next_list(self):
+        self.current_list += 1
+        self.current_list %= 3
+        self.open_list()
+
+
     def click(self, n, a):
         """
         n: ITEM IN A LIST  id
         a: LIST BUTTON id
         """
+        self.current_list = a
+        self.current_item = n
 
         if self.active != a:
             return
