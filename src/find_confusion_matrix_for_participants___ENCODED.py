@@ -1,3 +1,12 @@
+""" With this script we generated the confusion matrix we used in the
+presentation and the final document.
+
+This is basically find_confusion_matrix_for_participants.py. The difference is;
+English movement names are encoded (hence the name of this file) into integers,
+so that the code we found on stackoverflow.com can plot.
+
+"""
+
 participant3 = [
     ('111', '111'),
     ('66', '111'),

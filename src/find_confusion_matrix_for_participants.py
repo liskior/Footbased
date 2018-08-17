@@ -1,3 +1,9 @@
+""" Go to find_confusion_matrix_for_participants___ENCODED.py
+
+This does not work.
+
+"""
+
 participant3 = [
     ('SUPINATION', 'SUPINATION'),
     ('FORWARD_SLIDE', 'SUPINATION'),

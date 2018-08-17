@@ -1,7 +1,18 @@
-import matplotlib.pyplot as plt; plt.rcdefaults()
-import numpy as np
+""" Visualize classifier scores.
+
+This is a script that gives us a nice graphical comparison of scores for
+different classifiers. This script is taken from stackoverflow.com and modified
+to our needs. At the end of the day, we only needed one single image file for
+our documents.
+
+The input is `testNames` and `performance`.
+
+"""
 import matplotlib.pyplot as plt
-objects = (
+import numpy as np
+from matplotlib.ticker import MaxNLocator
+
+testNames = (
 'Gaussian\nProcess',
 'MLP',
 'AdaBoost',
@@ -16,32 +27,10 @@ objects = (
 'Random\nForest',
 'GaussianNB',
 )
-performance = [
-4,
-37,
-56,
-57,
-63,
-65,
-65,
-65,
-70,
-73,
-76,
-83,
-87,
-]
-
-import numpy as np
-import matplotlib.pyplot as plt
-from matplotlib.ticker import MaxNLocator
-
-# GLOBAL CONSTANTS
-testNames = objects
-#testMeta = dict(zip(testNames, ['laps', 'sec', 'min:sec', 'sec', '']))
+performance = [ 4, 37, 56, 57, 63, 65, 65, 65, 70, 73, 76, 83, 87, ]
 
 
-def plot_student_results(student, scores):
+def plot_results(student, scores):
     #  create the figure
     fig, ax1 = plt.subplots(figsize=(9, 7))
     fig.subplots_adjust(left=0.115, right=0.88)
@@ -60,11 +49,6 @@ def plot_student_results(student, scores):
     ax1.xaxis.set_major_locator(MaxNLocator(11))
     ax1.xaxis.grid(True, linestyle='--', which='major',
                    color='grey', alpha=.25)
-
-    # set X-axis tick marks at the deciles
-    cohort_label = ax1.text(.5, -.07, ''.format(cohort_size),
-                            horizontalalignment='center', size='small',
-                            transform=ax1.transAxes)
 
     rect_labels = []
     # Lastly, write in the ranking inside each bar to aid in interpretation
@@ -105,8 +89,5 @@ def plot_student_results(student, scores):
 
 student = ('Classifier accuracy', 2, 'boy')
 scores = dict(zip(testNames, performance))
-print scores
-cohort_size = 62  # The number of other 2nd grade boys
-
-arts = plot_student_results(student, scores)
+plot_results(student, scores)
 plt.show()

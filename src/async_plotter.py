@@ -1,3 +1,13 @@
+""" Plots a directory of recordings.
+
+Give the path of a directory of recordings to plot_recording_dir method. This
+will create plots (in png PNG format) in the same directory.
+
+Input directories can be found under:
+../recordings/rec*
+
+"""
+
 import matplotlib.pyplot as plt
 
 def __plot(samples):

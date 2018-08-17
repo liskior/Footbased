@@ -1,3 +1,10 @@
+""" GUI
+
+This gives us a GUI, on which we can define actions, to which we can map foot
+movements.
+
+"""
+
 from time import sleep
 
 from selenium import webdriver
@@ -17,6 +24,8 @@ class Mapping(object):
         options.binary_location = "/usr/bin/chromium-browser"
 
 
+        # Write the path to your installation of chromedriver into this file.
+        # It is .gitignore-d, therefore unique to your computer.
         f = open('CHROME_DRV_PATH.txt', 'r')
         drvpath = f.readline().rstrip()
         chromedriver_path = drvpath
@@ -24,10 +33,6 @@ class Mapping(object):
 
         self.__driver = webdriver.Chrome(chromedriver_path)
         self.__driver.get('http://127.0.0.1:5000/mg')
-        #self.show(0)
-        #sleep(2)
-        #self.show(1)
-        #self.show(2)
 
         self.click(0, 0)
         self.current_list = 0

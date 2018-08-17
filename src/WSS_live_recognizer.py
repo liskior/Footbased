@@ -1,14 +1,9 @@
-""" Live recognizer.
+""" Maps predicted movements to workspace switching.
 
-This will not work unless the sensor is attached. Do not forget to give the
-necessary permissions. You may either `sudo python this_script.py` or
-`chmod 777 /dev/sensor` (Usually "/dev/ttyUSB0")
+Works only on Linux, if `wmctrl` is present.
 
-With the sensor attached, this script loads the training data (line 53), trains
-the classifier, and starts the sensor data stream and classification.
-
-The mapping module requires additional libraries: It implements the GUI. It is
-not absolutely necessary: You can simply print the predictions.
+This script is essentially a copy DEP_live_recognizer.py, but it switches
+workspaces instead of executing actions on a dashboard.
 
 """
 
@@ -54,7 +49,7 @@ def extract_data_and_target_from_dir(path_to_dataset_dir):
 
     return asarray(data).reshape(file_count, -1), asarray(target)
 
-data, target = extract_data_and_target_from_dir('../recordings/rec')
+data, target = extract_data_and_target_from_dir('rec')
 
 #from sklearn import svm
 #clf = svm.SVC()
@@ -83,11 +78,15 @@ predict = 0 # samples
 last_predictions = []
 
 from collections import Counter
-from mapping import Mapping
-m = Mapping()
-
 
 from sys import stdout
+
+ws_horiz = 0
+ws_vert = 0
+
+def switch_ws(hor, ver):
+    from os import system
+    system('wmctrl -o ' + str(hor * 2000) + ',' + str(ver * 2000))
 
 while True:
     from time import sleep
@@ -109,12 +108,12 @@ while True:
         if predict == 0:
             final_answer = Counter(last_predictions).most_common(1)[0][0]
             print final_answer
-            if final_answer == 'SUPINATION': m.open_list(0)
-            elif final_answer == 'HEEL_RAISE': m.click(2)
-            elif final_answer == 'TOE_RAISE': m.click(1)
-            elif final_answer == 'PIVOT_ON_HEEL_OUTWARDS': m.next()
-            elif final_answer == 'PIVOT_ON_HEEL_INWARDS':
-                m.next()
-                m.next()
-            elif final_answer == 'FORWARD_SLIDE': m.choose(2)
-            elif final_answer == 'BACKWARD_SLIDE': m.choose(1)
+            from os import system
+            if final_answer in ('HEEL_RAISE', 'TOE_RAISE', 'FORWARD_SLIDE', 'BACKWARD_SLIDE'):
+                print 'VERTICAL'
+                ws_vert ^= 1
+                switch_ws(ws_horiz, ws_vert)
+            if final_answer in ('PIVOT_ON_HEEL_OUTWARDS', 'PIVOT_ON_HEEL_INWARDS', 'SUPINATION', 'PRONATION'):
+                print 'HORIZONTAL'
+                ws_horiz ^= 1
+                switch_ws(ws_horiz, ws_vert)

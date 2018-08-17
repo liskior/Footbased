@@ -1,3 +1,14 @@
+""" Script to score classifiers.
+
+Put all the training data into a single folder before running this script:
+`mkdir /tmp/recall; cp ../recordings/rec*/*.txt /tmp/recall/`
+
+Then record some testing data of your own into /tmp/test_data.
+
+The script then outputs a confusion_matrix and how well different classifiers in
+CLASSIFIERS do.
+
+"""
 def extract_features_and_label_from_file(path_to_file):
     from numpy import loadtxt
     from preprocessor import preprocess
@@ -32,7 +43,7 @@ def extract_data_and_target_from_dir(path_to_dataset_dir):
 
 data, target = extract_data_and_target_from_dir('/tmp/recall/')
 #data, target = extract_data_and_target_from_dir('../raw_data/dataset5')
-data2, target2 = extract_data_and_target_from_dir('./rec/')
+data2, target2 = extract_data_and_target_from_dir('/tmp/test_data/')
 
 from sklearn import svm
 from sklearn.ensemble import RandomForestClassifier

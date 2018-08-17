@@ -1,3 +1,14 @@
+""" Records training data.
+
+We used this to record training data. This needs two command line arguments.
+First argument is the directory to save the data. Second argument is the file
+name. Note that since a new file will be created for each movement, the date and
+the name of the movement is going to be appended to the provided file name,
+along with a txt extension.
+
+"""
+
+
 from random import shuffle
 from os import system
 from time import sleep

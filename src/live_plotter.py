@@ -1,3 +1,14 @@
+""" Plot live data.
+
+This will not work unless the sensor is attached. Do not forget to give the
+necessary permissions. You may either `sudo python this_script.py` or
+`chmod 777 /dev/sensor` (Usually "/dev/ttyUSB0")
+
+There is a delay, but a constant delay. This is not due to the sensor but due to
+the plotting library (matplotlib).
+
+"""
+
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 

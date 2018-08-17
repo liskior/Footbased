@@ -1,4 +1,18 @@
 # -*- coding: UTF-8 -*-
+""" Sensor proxy.
+
+This module is responsible for communicating with the sensor. Usage:
+
+from sensor import Sensor
+s = Sensor()
+s.get_single_sample() # Get one single sample (Acc & Mag & Gyr XYZ w/ timestamp)
+s.get_samples(100) # Get 100 samples with 10ms in between.
+
+This will not work unless the sensor is attached. Do not forget to give the
+necessary permissions. You may either `sudo python this_script.py` or
+`chmod 777 /dev/sensor` (Usually "/dev/ttyUSB0")
+
+"""
 
 from fnmatch import fnmatch
 from os import listdir

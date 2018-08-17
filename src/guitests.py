@@ -1,3 +1,12 @@
+""" Unit tests for the GUI.
+
+At some point it got frustrating, trying out the GUI manually each time. So we
+implemented this.
+
+This script is of no significance to the core machine learning functionality.
+
+"""
+
 import unittest
 from time import sleep
 from mapping import Mapping

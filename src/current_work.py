@@ -1,3 +1,9 @@
+""" Not important.
+
+Some experiments we did. This script is not used.
+
+"""
+
 import numpy as np
 from os.path import isdir
 from os import listdir

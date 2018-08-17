@@ -1,3 +1,17 @@
+/*
+
+This code was uploaded to an Arduino Nano. Do not forget to install the
+necessary libraries. Follow Adafruit's instructions.
+
+The Arduino does not send any data. To control the data stream, use the
+following commands (they are single characters):
+SEND_ONE_DATA_POINT - Sends one sample immediately.
+BEGIN_SENDING - Starts the data stream. 10ms sampling period.
+STOP_SENDING - Stops the data stream.
+(Follow the `#define`s below.)
+
+*/
+
 #include <Wire.h>
 #include <Adafruit_Sensor.h>
 #include <Adafruit_BNO055.h>

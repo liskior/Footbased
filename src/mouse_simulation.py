@@ -1,3 +1,9 @@
+""" Control the cursor with foot.
+
+This was an initial test.
+
+"""
+
 import pyautogui as ptg
 import time
 
