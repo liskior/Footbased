@@ -1,0 +1,8 @@
+Foot moving inwards is difficult for the human to execute, but also a little
+more difficult for the machine to register. With inwards movements, first time
+users tend to do a pre-move which was not present when training.
+
+Ideally, videos of movements should be shown. Verbal definition is not enought.
+With verbal definition only, users execute the movement too slow or without
+enough magnitude, or with too much magnitude.
+
